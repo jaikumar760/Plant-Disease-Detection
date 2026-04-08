@@ -48,17 +48,17 @@ def predict(img) -> Tuple[Dict, float]:
     # passing the transformed img through the model
     pred_probs = torch.softmax(effnetb0(img), dim=1)
   
-  # Get the class with the highest probability
-  highest_prob_class_idx = torch.argmax(pred_probs, dim=1).item()
-  highest_prob = pred_probs[0][highest_prob_class_idx].item()
-  
-  # Create a dictionary with the highest probability class and its value
-  prediction = {class_names[highest_prob_class_idx]: highest_prob}
+  # Get top-5 classes with highest probabilities
+  top_probs, top_idxs = torch.topk(pred_probs[0], k=5)
+  prediction = {
+      class_names[idx]: (prob.item() if hasattr(prob, "item") else float(prob))
+      for idx, prob in zip(top_idxs.tolist(), top_probs.tolist())
+  }
 
   # Calculate the prediction time
   pred_time = round(timer() - start_time, 5)
 
-  # return the prediction dictionary and prediction time
+  # return the prediction dictionary (top-5) and prediction time
   return prediction, pred_time
 
 
