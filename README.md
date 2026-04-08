@@ -1,55 +1,45 @@
-# Plant Disease Detection (PyTorch + Flask)
+ï»¿# Plant Disease Detection (PyTorch + Flask)
 
-A lightweight web app that predicts plant leaf diseases from an uploaded image using a trained EfficientNet-B0 model. The app runs locally with Flask and returns the predicted class with confidence and inference time.
+Web application for plant leaf disease classification using a trained EfficientNet-B0 model. Upload a JPG/PNG image and receive the predicted class, confidence, and inference time.
 
-## Demo
-- Upload a plant leaf image (JPG/PNG)
-- Click **Predict**
-- Get predicted class + confidence
-
-## Features
+## Highlights
 - 38 plant disease/healthy classes
-- EfficientNet-B0 inference (CPU)
-- Simple Flask UI + JSON API
-- Fast local inference
+- EfficientNet-B0 inference on CPU
+- Simple Flask UI and JSON API
+- Fast local predictions
 
-## Tech Stack
+## Requirements
 - Python 3.10+ (tested on 3.12)
-- PyTorch, Torchvision
+- PyTorch and Torchvision
 - Flask
 
 ## Project Structure
-- `app.py` — Flask routes + UI
-- `wsgi.py` — WSGI entrypoint
-- `python_scripts/` — model + prediction logic
-- `saved_models/` — trained model weights
+- `app.py` â€” Flask routes and UI
+- `wsgi.py` â€” WSGI entrypoint
+- `python_scripts/` â€” model and prediction logic
+- `saved_models/` â€” trained model weights
 
-## Setup
+## Quickstart
 ```bash
-# Create venv
 python -m venv .venv
 
-# Activate venv
 # Windows
 .\.venv\Scripts\Activate.ps1
+
 # macOS/Linux
 # source .venv/bin/activate
 
-# Install dependencies
-pip install -r requirements.txt
-```
-
-> Note: `numpy<2` is required due to PyTorch compatibility in this build.
-
-## Run Locally
-```bash
+python -m pip install -r requirements.txt
 python wsgi.py
 ```
-Then open: http://127.0.0.1:5000
+
+Then open `http://127.0.0.1:5000`.
+
+> Note: `numpy<2` is required for the pinned PyTorch build.
 
 ## API
 `POST /predict`
-- Form-data: `image` (file)
+- Form-data field: `image` (file)
 - Response: JSON with predicted class and confidence
 
 Example response:
@@ -65,7 +55,7 @@ All supported classes are listed in `python_scripts/class_names.txt`.
 
 ## Notes
 - First run may download EfficientNet weights to `~/.cache/torch/hub`.
-- For production, use a proper WSGI server (e.g. gunicorn on Linux).
+- For production, use a proper WSGI server (e.g., gunicorn on Linux).
 
 ## License
-MIT (add/update if you want a different license)
+MIT
