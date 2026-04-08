@@ -1,11 +1,11 @@
 ﻿# Plant Disease Detection (PyTorch + Flask)
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://jai-1656-plant-disease-detection.hf.space)
+[![Live](https://img.shields.io/badge/Live-Demo-brightgreen)](https://jai-1656-plant-disease-detection.hf.space)
 
-Live Demo (App): https://jai-1656-plant-disease-detection.hf.space
+Live (App): https://jai-1656-plant-disease-detection.hf.space
 Space Page: https://huggingface.co/spaces/Jai-1656/Plant-Disease-Detection
 
-Live Demo: https://huggingface.co/spaces/Jai-1656/Plant-Disease-Detection
+Live: https://huggingface.co/spaces/Jai-1656/Plant-Disease-Detection
 
 Web application for plant leaf disease classification using a trained EfficientNet-B0 model. Upload a JPG/PNG image and receive the predicted class, confidence, and inference time.
 
