@@ -316,6 +316,12 @@ def process_image():
     return render_page(error=str(e)), 500
 
 
+if __name__ == "__main__":
+    # Hugging Face Spaces expects the app to listen on 0.0.0.0:7860
+    port = int(__import__("os").environ.get("PORT", 7860))
+    app.run(host="0.0.0.0", port=port, debug=False)
+
+
 
 
 
